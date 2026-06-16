@@ -5,4 +5,8 @@
 4. npm install --save-dev nodemon
 - then added some json scripts.
 5. npm run dev
-- create index.js : import, create app, get, listen
+- created index.js : import, create app, get, listen
+- Inquiry.js model:
+  ::new mongoose.Schema(): defines the structure of the Inquiry document.
+  ::trim: remove extra spaces
+  ::timestamp:true automatically adds 'createdAt' and 'updatedAt'(admin can see the time it came)
