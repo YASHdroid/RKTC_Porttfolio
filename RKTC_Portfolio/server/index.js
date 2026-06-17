@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const authRoutes = require("./routes/authRoutes")
 
 dotenv.config();
 
@@ -23,10 +24,17 @@ mongoose
     console.log("DB Error:", err);
   });
 
+  app.use(
+ "/api/admin",
+ authRoutes
+)
+
 // Test route
 app.get("/", (req, res) => {
   res.send("Backend Running");
 });
+
+
 
 // Start server
 app.listen(1122, () => {
