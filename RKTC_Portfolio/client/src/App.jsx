@@ -4,7 +4,8 @@ import Landing from './pages/Landing';
 import Contact from './pages/Contact';
 import DealsIn from './pages/DealsIn';
 import PastWork from './pages/PastWork';
-
+import Login from "./pages/admin/Login";
+import Dashboard from './pages/admin/Dashboard';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/deals" element={<DealsIn />} />
         <Route path="/pastwork" element={<PastWork />} />
+        <Route path="/admin/login" element={<Login />}/>
+        <Route path="/admin/dashboard" element={<Dashboard />} 
+/>
       </Routes>
     </BrowserRouter>
   )
