@@ -10,3 +10,6 @@
   ::new mongoose.Schema(): defines the structure of the Inquiry document.
   ::trim: remove extra spaces
   ::timestamp:true automatically adds 'createdAt' and 'updatedAt'(admin can see the time it came)
+- .env file and mongoose connect()
+7. npm install bcryptjs jsonwebtoken 
+- connect to mongoose 

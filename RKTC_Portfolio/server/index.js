@@ -16,27 +16,28 @@ app.use(express.json());
 // Database connection
 
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected");
-  })
-  .catch((err) => {
-    console.log("DB Error:", err);
-  });
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("MongoDB Connected");
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
-  app.use(
- "/api/admin",
- authRoutes
+app.use(
+    "/api/admin",
+    authRoutes
 )
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Backend Running");
+    res.send("Backend Running");
 });
 
 
+const PORT = process.env.PORT;
 
 // Start server
-app.listen(1122, () => {
-  console.log("Server running on port 1122");
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
