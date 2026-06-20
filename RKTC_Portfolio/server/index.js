@@ -15,6 +15,8 @@ app.use(express.json());
 
 // Database connection
 
+console.log("DEBUG URI:", process.env.MONGO_URI);
+
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
