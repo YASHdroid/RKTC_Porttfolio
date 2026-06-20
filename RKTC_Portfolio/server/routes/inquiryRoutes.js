@@ -35,6 +35,7 @@ router.post('/', async (req, res) => {
             message: "Inquiry submitted successfully",
             data: inquiry
         });
+
     } catch (err) {
         res.status(500).json({
             success: false,
@@ -42,3 +43,20 @@ router.post('/', async (req, res) => {
         });
     }
 });
+
+router.get("/", async (req, res) => {
+    try {
+
+        const inquiries = await Inquiry.find();
+
+        res.status(200).json({
+            success: true,
+            data: inquiries
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+    }
+})
