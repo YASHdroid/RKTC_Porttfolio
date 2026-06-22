@@ -16,8 +16,8 @@ function App() {
         <Route path="/deals" element={<DealsIn />} />
         <Route path="/pastwork" element={<PastWork />} />
         <Route path="/admin/login" element={<Login />}/>
-        <Route path="/admin/dashboard" element={<Dashboard />} 
-/>
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+        
       </Routes>
     </BrowserRouter>
   )

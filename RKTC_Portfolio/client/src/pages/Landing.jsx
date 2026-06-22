@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 const NAV_LINKS = ["Home", "Products", "Past Work", "About", "Contact"];
 
 const PRODUCTS = [
@@ -171,27 +171,38 @@ export default function Landing() {
                     RKTC
                 </span>
 
+              
                 {/* Desktop links */}
-                <ul className="hidden md:flex gap-8 list-none">
-                    {NAV_LINKS.map((l) => (
-                        <li key={l}>
-                            <a
-                                href="#"
-                                className="text-[#a09c92] text-xs font-medium tracking-widest uppercase hover:text-[#c9a84c] transition-colors duration-200"
-                            >
-                                {l}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+<ul className="hidden md:flex gap-8 list-none">
+  {NAV_LINKS.map((l) => (
+    <li key={l}>
+      <Link
+        to={
+          l === "Home"
+            ? "/"
+            : l === "Products"
+            ? "/deals"
+            : l === "Past Work"
+            ? "/pastwork"
+            : `/${l.toLowerCase()}`
+        }
 
-                <a
-                    href="#contact"
-                    className="hidden md:inline-block bg-[#c9a84c] text-[#0d0f14] text-xs font-semibold px-5 py-2 rounded tracking-wider hover:bg-[#e0b95a] transition-colors duration-200"
-                >
-                    Get a Quote
-                </a>
-
+        className="
+          text-[#a09c92]
+          text-xs
+          font-medium
+          tracking-widest
+          uppercase
+          hover:text-[#c9a84c]
+          transition-colors
+          duration-200
+        "
+      >
+        {l}
+      </Link>
+    </li>
+  ))}
+</ul>
                 {/* Mobile hamburger */}
                 <button
                     className="md:hidden flex flex-col gap-[5px] cursor-pointer"
@@ -204,29 +215,40 @@ export default function Landing() {
                 </button>
             </nav>
 
-            {/* Mobile menu */}
-            {menuOpen && (
-                <div className="fixed inset-0 z-40 bg-[#0d0f14] flex flex-col items-center justify-center gap-8 md:hidden">
-                    {NAV_LINKS.map((l) => (
-                        <a
-                            key={l}
-                            href="#"
-                            onClick={() => setMenuOpen(false)}
-                            className="font-display text-3xl tracking-[4px] text-[#f0ede6] hover:text-[#c9a84c] transition-colors"
-                        >
-                            {l}
-                        </a>
-                    ))}
-                    <a
-                        href="#contact"
-                        onClick={() => setMenuOpen(false)}
-                        className="mt-4 bg-[#c9a84c] text-[#0d0f14] text-sm font-semibold px-8 py-3 rounded tracking-widest"
-                    >
-                        GET A QUOTE
-                    </a>
-                </div>
-            )}
+{/* Mobile menu */}
+{menuOpen && (
+  <div className="fixed inset-0 z-40 bg-[#0d0f14] flex flex-col items-center justify-center gap-8 md:hidden">
 
+    {NAV_LINKS.map((l) => (
+      <Link
+        key={l}
+
+        to={
+          l === "Home"
+            ? "/"
+            : l === "Products"
+            ? "/deals"
+            : l === "Past Work"
+            ? "/pastwork"
+            : `/${l.toLowerCase()}`
+        }
+
+        onClick={() => setMenuOpen(false)}
+
+        className="
+          font-display
+          text-3xl
+          tracking-[4px]
+          text-[#f0ede6]
+          hover:text-[#c9a84c]
+        "
+      >
+        {l}
+      </Link>
+    ))}
+
+  </div>
+)}
             {/* ════════════ HERO ════════════ */}
             <section
                 ref={heroRef}
