@@ -59,4 +59,33 @@ router.get("/", async (req, res) => {
             message: "Server Error"
         });
     }
-})
+});
+
+router.delete("/:id", async (req, res) => {
+    try {
+
+        const deletedInquiry = await Inquiry.findByIdAndDelete(
+            req.params.id
+        );
+
+        if (!deletedInquiry) {
+            return res.status(404).json({
+                success: false,
+                message: "Inquiry not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Inquiry deleted successfully",
+        });
+
+    } catch (err) {
+
+        res.status(500).json({
+            success: false,
+            message: "Server Error",
+        });
+
+    }
+});
