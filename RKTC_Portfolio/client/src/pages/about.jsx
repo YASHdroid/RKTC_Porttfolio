@@ -1,30 +1,30 @@
 const STATS = [
-  { num: "500+", label: "Projects Completed" },
+  { num: "1000+", label: "Projects Completed" },
   { num: "12+", label: "Years in Business" },
-  { num: "8", label: "Product Lines" },
-  { num: "200+", label: "Happy Clients" },
+  { num: "8", label: "Services Offered" },
+  { num: "750+", label: "Happy Clients" },
 ];
 
 const VALUES = [
   {
     icon: "◈",
     title: "Quality First",
-    desc: "We source only from trusted manufacturers. Every material we supply meets industry standards for durability, finish, and safety.",
+    desc: "We work only with trusted manufacturers and use materials that meet industry standards for durability, finish, and safety.",
   },
   {
     icon: "▰",
     title: "Honest Pricing",
-    desc: "No hidden charges. Trade pricing for contractors, bulk discounts for large orders, and quotes within 24 hours — always.",
+    desc: "No hidden charges. Fair pricing for every job, and quotes within 24 hours — always.",
   },
   {
     icon: "▧",
-    title: "Fast Fulfillment",
-    desc: "Cut-to-size availability and prompt dispatch from our warehouse so your projects never face material delays.",
+    title: "On-Site, On-Schedule",
+    desc: "We show up on time and complete installations efficiently so your projects never face delays.",
   },
   {
     icon: "◐",
     title: "Expert Guidance",
-    desc: "Not sure which material suits your project? Our team helps you pick the right product for the right application.",
+    desc: "Not sure which material suits your project? Our team helps you pick the right solution for the right application.",
   },
 ];
 
@@ -32,22 +32,17 @@ const TIMELINE = [
   {
     year: "2012",
     title: "Founded",
-    desc: "RKTC started as a small aluminium and ACP sheet supplier in Haryana, serving local contractors.",
+    desc: "RKTC started as a small aluminium and ACP installation service in Haryana, serving local contractors and builders.",
   },
   {
     year: "2015",
-    title: "Expanded Product Line",
-    desc: "Added toughened glass, PVC sheets and false ceiling systems to meet growing demand from architects.",
+    title: "Expanded Services",
+    desc: "Added toughened glass, PVC sheet and false ceiling installations to meet growing demand from architects.",
   },
   {
     year: "2018",
-    title: "Warehouse Upgrade",
-    desc: "Moved to a larger facility with cut-to-size capabilities and faster dispatch for bulk orders.",
-  },
-  {
-    year: "2021",
-    title: "HPL & Acrylic Added",
-    desc: "Launched HPL cladding and acrylic sheet supply to complete our exterior and interior material range.",
+    title: "Grew Our Team",
+    desc: "Expanded our installation team and took on larger commercial projects across the region.",
   },
   {
     year: "2025",
@@ -55,7 +50,6 @@ const TIMELINE = [
     desc: "Launched our online portfolio to connect with architects, designers and contractors across India.",
   },
 ];
-
 export default function About() {
   return (
     <div className="bg-[#0d0f14] text-[#f0ede6] font-sans min-h-screen">
@@ -115,30 +109,33 @@ export default function About() {
 
         {/* Right — text */}
         <div>
-          <p className="text-[#a09c92] text-[15px] leading-[1.85] mb-6">
-            RKTC is a Haryana-based supplier of premium architectural surface
-            materials — serving contractors, interior designers, and architects
-            across North India for over a decade.
-          </p>
-          <p className="text-[#7a7570] text-[14px] leading-[1.85] mb-6">
-            We started with a simple idea: make it easier for builders to get
-            quality materials without the hassle of dealing with multiple
-            vendors. Today, we supply everything from ACP sheets and aluminium
-            sections to toughened glass, HPL cladding, PVC, acrylic, and false
-            ceiling systems — all from one trusted source.
-          </p>
-          <p className="text-[#7a7570] text-[14px] leading-[1.85]">
-            Whether you're cladding a commercial facade, fitting out a retail
-            interior, or sourcing materials for a residential project — RKTC
-            delivers the right product at the right price, on time.
-          </p>
+        <p className="text-[#a09c92] text-[15px] leading-[1.85] mb-6">
+  RKTC is a Haryana-based installation company specialising in premium
+  architectural surface solutions — serving contractors, interior
+  designers, and architects across North India for over a decade.
+</p>
+
+<p className="text-[#7a7570] text-[14px] leading-[1.85] mb-6">
+  We started with a simple idea: make it easier for builders to get
+  quality installation services without dealing with multiple vendors.
+  Today, we install everything from ACP sheets and aluminium sections to
+  toughened glass, HPL cladding, PVC, acrylic, and false ceiling systems —
+  all through one trusted team.
+</p>
+
+<p className="text-[#7a7570] text-[14px] leading-[1.85]">
+  Whether you're cladding a commercial facade, fitting out a retail
+  interior, or finishing a residential project — RKTC delivers the right
+  installation at the right price, on time.
+</p>
+
+
 
           {/* divider */}
           <div className="border-t border-[rgba(201,168,76,0.12)] mt-10 pt-8">
             <div className="border-l-2 border-[#c9a84c] pl-5">
               <p className="text-[14px] text-[#a09c92] italic leading-relaxed">
-                "Our goal has always been simple — be the supplier we ourselves
-                always wished we had."
+                "Our goal has always been simple — be the installation partner we ourselves always wished we had."
               </p>
               <p className="text-[12px] text-[#5a5650] mt-2 tracking-wider uppercase">
                 — Founder, RKTC
@@ -244,8 +241,8 @@ export default function About() {
               WORK WITH US
             </h2>
             <p className="text-[14px] text-[#7a7570] mt-2 max-w-sm">
-              Looking for a reliable material supplier for your next project?
-              Let's talk.
+    Looking for a reliable installation partner for your next project?
+Let's talk.
             </p>
           </div>
           <a

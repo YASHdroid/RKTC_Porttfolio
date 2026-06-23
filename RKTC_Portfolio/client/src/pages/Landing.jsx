@@ -6,43 +6,43 @@ const PRODUCTS = [
     {
         icon: "▪",
         name: "ACP Sheets",
-        desc: "Aluminium Composite Panels for modern facades, signage & interiors. Available in PE & PVDF finishes.",
+        desc: "We install Aluminium Composite Panels for modern facades & interiors and finishes available.",
         span: false,
     },
     {
         icon: "▧",
         name: "Aluminium Sections",
-        desc: "Structural & decorative aluminium profiles for doors, windows, curtain walls, and partitions.",
+        desc: "We install structural & decorative aluminium profiles for doors, windows, curtain walls, and partitions.",
         span: false,
     },
     {
         icon: "◈",
         name: "Toughened Glass",
-        desc: "Safety glass for railings, partitions, storefronts and facades. Custom sizes and tints available.",
+        desc: "We install safety glass for railings, partitions, storefronts and facades. Custom sizes and tints available.",
         span: false,
     },
     {
         icon: "▬",
         name: "PVC Sheets",
-        desc: "Lightweight, durable PVC panels for ceilings, wall linings and moisture-prone areas.",
+        desc: "We install lightweight, durable PVC panels for ceilings, wall linings and moisture-prone areas.",
         span: false,
     },
     {
         icon: "▰",
         name: "HPL Cladding",
-        desc: "High Pressure Laminate panels for exterior cladding & interior wall surfaces. Scratch & UV resistant.",
+        desc: "We install High Pressure Laminate panels for exterior cladding & interior wall surfaces. Scratch & UV resistant",
         span: false,
     },
     {
         icon: "◐",
         name: "Acrylic Sheets",
-        desc: "Crystal-clear and coloured acrylic for signage, display, partitions and decorative applications.",
+        desc: "We install crystal-clear and coloured acrylic for signage, display, partitions and decorative applications",
         span: false,
     },
     {
         icon: "▦",
         name: "False Ceiling Systems",
-        desc: "Complete false ceiling solutions — gypsum, grid and metal ceiling systems for commercial & residential spaces. Supplied with all accessories and grid components.",
+        desc: "We handle complete false ceiling installations  commercial & residential spaces.",
         span: true,
     },
 ];
@@ -50,23 +50,23 @@ const PRODUCTS = [
 const WHY_POINTS = [
     {
         num: "1",
-        title: "One-Stop Material Source",
-        desc: "All major building surface materials under one roof — ACP, glass, HPL, PVC, aluminium, and acrylic.",
+        title: "Complete Installation Service",
+        desc: "ACP, glass, HPL, PVC, aluminium, acrylic — we handle installation for all major surface materials.",
     },
     {
         num: "2",
-        title: "Contractor-Trusted Supply",
-        desc: "Preferred supplier for architects, interior designers, and contractors across the region for over a decade.",
+        title: "Contractor-Trusted Work",
+        desc: "Preferred installation partner for architects, interior designers, and contractors across the region for over a decade.",
     },
     {
         num: "3",
-        title: "Custom Sizes & Fast Delivery",
-        desc: "Cut-to-size availability and prompt dispatch so your projects stay on schedule without compromise.",
+        title: "Custom Sizes & Fast Installation",
+        desc: "We show up on time and get the job done so your projects stay on schedule without compromise.",
     },
     {
         num: "4",
-        title: "Competitive Trade Pricing",
-        desc: "Direct sourcing with trade discounts for bulk and repeat orders. Get a quote in 24 hours.",
+        title: "Competitive  Pricing",
+        desc: "Fair pricing for every job, big or small. Get a quote within 24 hours.",
     },
 ];
 
@@ -261,7 +261,7 @@ export default function Landing() {
                 <div className="flex items-center gap-3 mb-6 reveal">
                     <span className="block w-8 h-[1px] bg-[#c9a84c]" />
                     <span className="text-[#c9a84c] text-[11px] font-semibold tracking-[0.22em] uppercase">
-                        Premium Building Materials
+                        Premium Building Installation
                     </span>
                 </div>
 
@@ -276,8 +276,7 @@ export default function Landing() {
 
                 {/* Sub */}
                 <p className="text-[#7a7570] text-base leading-relaxed max-w-md mb-12 reveal">
-                    From ACP cladding to toughened glass — RKTC supplies architects and
-                    contractors with materials that perform and impress.
+                    From ACP cladding to toughened glass — RKTC installs premium surface materials for architects and contractors across the region.
                 </p>
 
                 {/* CTAs */}
@@ -301,7 +300,7 @@ export default function Landing() {
                     {[
                         { num: "500+", label: "Projects Completed" },
                         { num: "12+", label: "Years in Business" },
-                        { num: "8", label: "Product Lines" },
+                        { num: "8", label: "Services Offered" },
                     ].map((s) => (
                         <div key={s.label}>
                             <div className="font-display text-[48px] text-[#c9a84c] leading-none">
@@ -339,9 +338,9 @@ export default function Landing() {
                     What We Offer
                 </div>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[1.02] tracking-[1px] text-[#f0ede6] mb-14 reveal">
-                    MATERIALS THAT
+                   WORK THAT DEFINES SPACES  
                     <br />
-                    <span className="text-[#c9a84c]">DEFINE SPACES</span>
+                    <span className="text-[#c9a84c]">What We Do</span>
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[2px]">
@@ -422,7 +421,7 @@ export default function Landing() {
                             <span className="text-[#c9a84c]">YOUR PROJECT?</span>
                         </h2>
                         <p className="text-[14px] text-[#7a7570] mt-2">
-                            Tell us what you need and we'll get back with pricing within 24 hours.
+                            Tell us what you need installed and we'll get back with a quote within 24 hours.
                         </p>
                     </div>
                     <a

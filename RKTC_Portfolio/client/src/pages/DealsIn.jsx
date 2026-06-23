@@ -11,9 +11,9 @@ const PRODUCTS = [
         name: "ACP Sheets",
         fullName: "Aluminium Composite Panels",
         tagline: "Modern facades, bold signage, premium interiors",
-        desc: "Aluminium Composite Panels consist of two aluminium sheets bonded to a polyethylene or mineral core. Lightweight yet rigid, they are the go-to choice for building facades, shopfronts, signage, and interior wall cladding.",
+        desc: "Aluminium Composite Panels consist of two aluminium sheets bonded to a polyethylene or mineral core. Lightweight yet rigid, we install them for building facades, shopfronts, signage, and interior wall cladding.",
         specs: [
-            { label: "Thickness", value: "3mm / 4mm / 6mm" },
+            { label: "Thickness", value: "Many Available" },
             { label: "Width", value: "1220mm / 1500mm" },
             { label: "Core Type", value: "PE (Polyethylene) / FR (Fire Retardant)" },
             { label: "Finish", value: "PVDF Coating / PE Coating" },
@@ -32,7 +32,7 @@ const PRODUCTS = [
         name: "Aluminium Sections",
         fullName: "Aluminium Profiles & Extrusions",
         tagline: "Structural strength with a clean finish",
-        desc: "Extruded aluminium profiles used in doors, windows, curtain wall systems, partitions, shopfronts, and structural glazing. Corrosion-resistant, lightweight and available in anodised or powder-coated finishes.",
+        desc: "We install extruded aluminium profiles for doors, windows, curtain wall systems, partitions, shopfronts, and structural glazing. Corrosion-resistant and lightweight with anodised or powder-coated finishes.",
         specs: [
             { label: "Alloy", value: "6063 T5 / T6 Grade" },
             { label: "Finish", value: "Anodised / Powder Coated / Mill Finish" },
@@ -53,7 +53,7 @@ const PRODUCTS = [
         name: "Toughened Glass",
         fullName: "Tempered Safety Glass",
         tagline: "Safety, clarity and structural integrity",
-        desc: "Toughened (tempered) glass is 4–5x stronger than normal glass. When broken, it shatters into small blunt pieces instead of sharp shards, making it the safest choice for structural and high-traffic applications.",
+        desc: "Toughened (tempered) glass is 4–5x stronger than normal glass. When broken, it shatters into small blunt pieces instead of sharp shards. We install it for railings, partitions, storefronts and facades.",
         specs: [
             { label: "Thickness", value: "4mm / 6mm / 8mm / 10mm / 12mm" },
             { label: "Max Size", value: "2440mm × 3660mm" },
@@ -74,7 +74,7 @@ const PRODUCTS = [
         name: "PVC Sheets",
         fullName: "PVC Foam & Rigid Sheets",
         tagline: "Lightweight, waterproof, easy to work with",
-        desc: "PVC sheets are moisture-resistant, termite-proof and extremely lightweight. Ideal for wet areas, false ceilings, wall panelling and display boards. Available in foam (Sunboard type) and rigid variants.",
+        desc: "PVC sheets are moisture-resistant, termite-proof and extremely lightweight. We install them for false ceilings, wall panelling, wet areas and display boards. Available in foam and rigid variants.",
         specs: [
             { label: "Thickness", value: "1mm to 25mm" },
             { label: "Sheet Size", value: "1220mm × 2440mm (standard)" },
@@ -95,7 +95,7 @@ const PRODUCTS = [
         name: "HPL Cladding",
         fullName: "High Pressure Laminate Panels",
         tagline: "Durable exterior surfaces with designer finishes",
-        desc: "High Pressure Laminate (HPL) panels are manufactured by compressing layers of kraft paper and decorative paper under high heat and pressure. The result is an extremely hard, scratch-resistant panel suitable for both exterior and interior use.",
+        desc: "High Pressure Laminate (HPL) panels are extremely hard and scratch-resistant. We install them for exterior cladding and interior wall surfaces in commercial and residential projects.",
         specs: [
             { label: "Thickness", value: "3mm / 6mm / 8mm / 10mm / 12mm" },
             { label: "Sheet Size", value: "1300mm × 3050mm (standard)" },
@@ -116,7 +116,7 @@ const PRODUCTS = [
         name: "Acrylic Sheets",
         fullName: "Cast & Extruded Acrylic (PMMA)",
         tagline: "Crystal clarity for signs, displays and décor",
-        desc: "Acrylic (PMMA) sheets are a lightweight, shatter-resistant alternative to glass with 92% light transmission. Available in clear, coloured, mirror and frosted variants. Can be laser-cut, CNC-routed, bent and thermoformed.",
+        desc: "Acrylic (PMMA) sheets are a lightweight, shatter-resistant alternative to glass with 92% light transmission. We install them for signage, display counters, partitions and decorative applications.",
         specs: [
             { label: "Thickness", value: "1.5mm to 25mm" },
             { label: "Sheet Size", value: "1220mm × 2440mm / 2050mm × 3050mm" },
@@ -137,7 +137,7 @@ const PRODUCTS = [
         name: "False Ceiling",
         fullName: "False Ceiling Systems & Accessories",
         tagline: "Complete ceiling solutions for every space",
-        desc: "We supply complete false ceiling systems including gypsum boards, grid systems (T-bar), metal tiles, PVC ceiling panels and all accessories. Suitable for commercial offices, malls, hospitals, hotels and residential spaces.",
+        desc: "We install complete false ceiling systems including gypsum boards, grid systems (T-bar), metal tiles and PVC ceiling panels. Suitable for commercial offices, malls, hospitals, hotels and residential spaces.",
         specs: [
             { label: "Types", value: "Gypsum / Grid T-bar / Metal Tile / PVC / Stretch" },
             { label: "Grid Size", value: "600×600mm / 600×1200mm (standard)" },
@@ -199,7 +199,7 @@ export default function DealsIn() {
                 <div className="flex items-center gap-3 mb-5 fade-up">
                     <span className="block w-8 h-[1px] bg-[#c9a84c]" />
                     <span className="text-[#c9a84c] text-[11px] font-semibold tracking-[0.22em] uppercase">
-                        Product Catalogue
+                       Our Services
                     </span>
                 </div>
                 <h1 className="font-display text-[clamp(48px,9vw,100px)] leading-[0.92] tracking-[2px] text-[#f0ede6] fade-up">
@@ -208,8 +208,8 @@ export default function DealsIn() {
                     <span className="text-[#c9a84c]">DEAL IN</span>
                 </h1>
                 <p className="text-[#7a7570] text-[15px] leading-relaxed max-w-lg mt-5 fade-up">
-                    Premium building surface materials for architects, contractors and
-                    interior designers. Click any product to see full specs.
+                    We install premium surface materials for architects, contractors and
+interior designers. Click any service to see full details.
                 </p>
             </div>
 
@@ -331,7 +331,7 @@ export default function DealsIn() {
                             {/* Brands */}
                             <div className="px-8 py-6 border-b border-[rgba(201,168,76,0.1)]">
                                 <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#c9a84c] mb-4">
-                                    Brands We Stock
+                                Common Brands 
                                 </div>
                                 <div className="flex flex-wrap gap-3">
                                     {activeProduct.brands.map((b) => (
@@ -367,7 +367,7 @@ export default function DealsIn() {
                             NEED A CUSTOM QUOTE?
                         </h2>
                         <p className="text-[13px] text-[#5a5650] mt-1">
-                            Bulk orders, custom sizes, specific finishes — just ask.
+                            Got a project in mind? Tell us what you need installed and we'll get back with a quote.
                         </p>
                     </div>
                     <a
