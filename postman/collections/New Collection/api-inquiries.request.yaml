@@ -1,0 +1,5 @@
+$kind: http-request
+name: api/inquiries
+url: http://localhost:1122/api/inquiries
+method: GET
+order: 4270968232566430

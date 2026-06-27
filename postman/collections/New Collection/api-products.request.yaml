@@ -1,0 +1,18 @@
+$kind: http-request
+name: api/products
+url: http://localhost:1122/api/products
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"ACP Sheets\",\r
+
+    \  \"description\": \"Premium quality ACP Sheets\",\r
+
+    \  \"category\": \"ACP\",\r
+
+    \  \"image\": \"/uploads/acp.jpg\"\r
+
+    }"
+order: 1782553815134

@@ -1,0 +1,5 @@
+$kind: http-request
+name: api/products
+url: http://localhost:1122/api/products/63af9c4882f539d5c663d538
+method: DELETE
+order: 3487643280730107

@@ -1,0 +1,18 @@
+$kind: http-request
+name: api/products
+url: http://localhost:1122/api/products/6a3f9c4882f539d5c663d538
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Premium ACP Sheets\",\r
+
+    \  \"description\": \"Imported ACP Sheets\",\r
+
+    \  \"category\": \"ACP\",\r
+
+    \  \"image\": \"/uploads/new-acp.jpg\"\r
+
+    }"
+order: 2742965826687174

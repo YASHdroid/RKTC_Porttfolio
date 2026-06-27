@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoutes")
+const authRoutes = require("./routes/authRoutes");
+const inquiryRoutes = require("./routes/inquiryRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 dotenv.config();
 
@@ -26,10 +28,11 @@ mongoose
         console.log(err);
     });
 
-app.use(
-    "/api/admin",
-    authRoutes
-)
+app.use("/api/admin", authRoutes);
+
+app.use("/api/inquiries", inquiryRoutes);
+
+app.use("/api/products", productRoutes);
 
 // Test route
 app.get("/", (req, res) => {
