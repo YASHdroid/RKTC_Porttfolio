@@ -13,3 +13,4 @@
 - .env file and mongoose connect()
 7. npm install bcryptjs jsonwebtoken 
 - connect to mongoose 
+8. npm install nodemailer
