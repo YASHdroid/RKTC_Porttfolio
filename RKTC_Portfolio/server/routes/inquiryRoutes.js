@@ -3,6 +3,7 @@ const router = express.Router();
 // this is like a mini-app
 const Inquiry = require('../model/Inquiry');
 
+const sendEmail = require("../utils/sendEmail");
 
 router.post('/', async (req, res) => {
     try {
@@ -30,6 +31,13 @@ router.post('/', async (req, res) => {
             products
         });
 
+        await sendEmail(inquiry);
+        res.status(201).json({
+            success: true,
+            message: "Inquiry submitted successfully",
+            data: inquiry
+        });
+
         res.status(201).json({
             success: true,
             message: "Inquiry submitted successfully",
@@ -37,6 +45,7 @@ router.post('/', async (req, res) => {
         });
 
     } catch (err) {
+        console.log(err);
         res.status(500).json({
             success: false,
             message: "Server Error"

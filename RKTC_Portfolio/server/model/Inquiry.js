@@ -15,7 +15,7 @@ const inquirySchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    product: {
+    products: {
         type: [String],
         required: true,
     },
