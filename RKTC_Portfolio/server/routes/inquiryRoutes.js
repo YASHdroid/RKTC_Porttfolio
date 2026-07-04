@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
             products
         });
 
-        // await sendEmail(inquiry);
+        await sendEmail(inquiry);
         res.status(201).json({
             success: true,
             message: "Inquiry submitted successfully",

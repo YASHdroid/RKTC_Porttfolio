@@ -163,31 +163,31 @@ export default function Landing() {
             {/* ════════════ NAVBAR ════════════ */}
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 transition-all duration-300 ${scrolled
-                        ? "bg-[rgba(13,15,20,0.96)] border-b border-[rgba(201,168,76,0.18)] backdrop-blur-md"
-                        : "bg-transparent"
+                    ? "bg-[rgba(13,15,20,0.96)] border-b border-[rgba(201,168,76,0.18)] backdrop-blur-md"
+                    : "bg-transparent"
                     }`}
             >
                 <span className="font-display text-[28px] tracking-[4px] text-[#c9a84c]">
                     RKTC
                 </span>
 
-              
-                {/* Desktop links */}
-<ul className="hidden md:flex gap-8 list-none">
-  {NAV_LINKS.map((l) => (
-    <li key={l}>
-      <Link
-        to={
-          l === "Home"
-            ? "/"
-            : l === "Products"
-            ? "/deals"
-            : l === "Past Work"
-            ? "/pastwork"
-            : `/${l.toLowerCase()}`
-        }
 
-        className="
+                {/* Desktop links */}
+                <ul className="hidden md:flex gap-8 list-none">
+                    {NAV_LINKS.map((l) => (
+                        <li key={l}>
+                            <Link
+                                to={
+                                    l === "Home"
+                                        ? "/"
+                                        : l === "Products"
+                                            ? "/deals"
+                                            : l === "Past Work"
+                                                ? "/pastwork"
+                                                : `/${l.toLowerCase()}`
+                                }
+
+                                className="
           text-[#a09c92]
           text-xs
           font-medium
@@ -197,12 +197,12 @@ export default function Landing() {
           transition-colors
           duration-200
         "
-      >
-        {l}
-      </Link>
-    </li>
-  ))}
-</ul>
+                            >
+                                {l}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
                 {/* Mobile hamburger */}
                 <button
                     className="md:hidden flex flex-col gap-[5px] cursor-pointer"
@@ -215,40 +215,40 @@ export default function Landing() {
                 </button>
             </nav>
 
-{/* Mobile menu */}
-{menuOpen && (
-  <div className="fixed inset-0 z-40 bg-[#0d0f14] flex flex-col items-center justify-center gap-8 md:hidden">
+            {/* Mobile menu */}
+            {menuOpen && (
+                <div className="fixed inset-0 z-40 bg-[#0d0f14] flex flex-col items-center justify-center gap-8 md:hidden">
 
-    {NAV_LINKS.map((l) => (
-      <Link
-        key={l}
+                    {NAV_LINKS.map((l) => (
+                        <Link
+                            key={l}
 
-        to={
-          l === "Home"
-            ? "/"
-            : l === "Products"
-            ? "/deals"
-            : l === "Past Work"
-            ? "/pastwork"
-            : `/${l.toLowerCase()}`
-        }
+                            to={
+                                l === "Home"
+                                    ? "/"
+                                    : l === "Products"
+                                        ? "/deals"
+                                        : l === "Past Work"
+                                            ? "/pastwork"
+                                            : `/${l.toLowerCase()}`
+                            }
 
-        onClick={() => setMenuOpen(false)}
+                            onClick={() => setMenuOpen(false)}
 
-        className="
+                            className="
           font-display
           text-3xl
           tracking-[4px]
           text-[#f0ede6]
           hover:text-[#c9a84c]
         "
-      >
-        {l}
-      </Link>
-    ))}
+                        >
+                            {l}
+                        </Link>
+                    ))}
 
-  </div>
-)}
+                </div>
+            )}
             {/* ════════════ HERO ════════════ */}
             <section
                 ref={heroRef}
@@ -282,13 +282,13 @@ export default function Landing() {
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-4 mb-16 md:mb-0 reveal">
                     <a
-                        href="#products"
+                        href="products"
                         className="bg-[#c9a84c] text-[#0d0f14] font-semibold text-sm px-8 py-4 rounded tracking-wider hover:bg-[#e0b95a] hover:-translate-y-[2px] transition-all duration-200"
                     >
                         Explore Products
                     </a>
                     <a
-                        href="#pastwork"
+                        href="pastwork"
                         className="border border-[rgba(201,168,76,0.4)] text-[#c9a84c] font-medium text-sm px-8 py-4 rounded tracking-wider hover:border-[#c9a84c] hover:bg-[rgba(201,168,76,0.07)] transition-all duration-200"
                     >
                         View Past Work
@@ -338,7 +338,7 @@ export default function Landing() {
                     What We Offer
                 </div>
                 <h2 className="font-display text-[clamp(36px,6vw,72px)] leading-[1.02] tracking-[1px] text-[#f0ede6] mb-14 reveal">
-                   WORK THAT DEFINES SPACES  
+                    WORK THAT DEFINES SPACES
                     <br />
                     <span className="text-[#c9a84c]">What We Do</span>
                 </h2>
