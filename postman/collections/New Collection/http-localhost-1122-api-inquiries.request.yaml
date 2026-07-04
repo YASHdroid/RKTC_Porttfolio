@@ -1,0 +1,26 @@
+$kind: http-request
+name: http://localhost:1122/api/inquiries
+url: http://localhost:1122/api/inquiries
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Shiz\",\r
+
+    \  \"phone\": \"9876543210\",\r
+
+    \  \"email\": \"shiz@gmail.com\",\r
+
+    \  \"products\": [\r
+
+    \    \"ACP Sheets\",\r
+
+    \    \"Glass\"\r
+
+    \  ],\r
+
+    \  \"message\": \"Need ACP and Glass work.\"\r
+
+    }"
+order: 4352791726898403

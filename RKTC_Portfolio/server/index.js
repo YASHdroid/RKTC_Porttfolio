@@ -1,12 +1,12 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const inquiryRoutes = require("./routes/inquiryRoutes");
 const productRoutes = require("./routes/productRoutes");
-
-dotenv.config();
 
 // Create backend application
 const app = express();
@@ -39,8 +39,11 @@ app.get("/", (req, res) => {
     res.send("Backend Running");
 });
 
-
 const PORT = process.env.PORT;
+
+// console.log("USER:", process.env.EMAIL_USER);
+// console.log("PASS:", process.env.EMAIL_PASS ? "Present" : "Missing");
+// console.log("ADMIN:", process.env.ADMIN_EMAIL);
 
 // Start server
 app.listen(PORT, () => {
