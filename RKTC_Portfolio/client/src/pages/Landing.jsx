@@ -282,7 +282,7 @@ export default function Landing() {
                 {/* CTAs */}
                 <div className="flex flex-wrap gap-4 mb-16 md:mb-0 reveal">
                     <a
-                        href="products"
+                        href="#products"
                         className="bg-[#c9a84c] text-[#0d0f14] font-semibold text-sm px-8 py-4 rounded tracking-wider hover:bg-[#e0b95a] hover:-translate-y-[2px] transition-all duration-200"
                     >
                         Explore Products
