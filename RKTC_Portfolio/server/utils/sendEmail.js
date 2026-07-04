@@ -16,7 +16,7 @@ const sendEmail = async (inquiry) => {
     await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: process.env.ADMIN_EMAILS,
-
+        replyTo: inquiry.email,
         subject: "New Inquiry Received - RKTC Portfolio",
 
         text: `
