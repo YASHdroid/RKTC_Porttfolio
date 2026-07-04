@@ -1,4 +1,5 @@
 import { useState } from "react";
+import api from "../services/api";
 
 const Contact = () => {
   const [formData, setFormData] =
@@ -9,10 +10,18 @@ const Contact = () => {
       message: "",
     });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    try {
+      const response = await api.post("/inquiry", formData);
+
+      alert(response.data.message);
+
+    } catch (err) {
+      console.log(err);
+      alert("Something went wrong");
+    }
   };
 
   return (
@@ -141,10 +150,10 @@ const Contact = () => {
 
               value={formData.name}
 
-              onChange={(e)=>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
-                  name:e.target.value
+                  name: e.target.value
                 })
               }
 
@@ -162,10 +171,10 @@ const Contact = () => {
 
               value={formData.email}
 
-              onChange={(e)=>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
-                  email:e.target.value
+                  email: e.target.value
                 })
               }
 
@@ -183,10 +192,10 @@ const Contact = () => {
 
               value={formData.phone}
 
-              onChange={(e)=>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
-                  phone:e.target.value
+                  phone: e.target.value
                 })
               }
 
@@ -205,10 +214,10 @@ const Contact = () => {
 
               value={formData.message}
 
-              onChange={(e)=>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
-                  message:e.target.value
+                  message: e.target.value
                 })
               }
 
