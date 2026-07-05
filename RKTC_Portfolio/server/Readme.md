@@ -16,12 +16,12 @@
 8. npm install nodemailer
 
 // ID kha se aa rhi h - req.params.id
-// data kha se aa rh ah - req.body
+// data kha se aa rha h - req.body
 *** const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,             // product to be updated
       req.body,                  // hme kya update krna h !
       {
         new: true,
         runValidators: true,
-      }                          //optns
-    ); ***
+      }                          // these are optns
+    );                ***
