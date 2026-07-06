@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth");
 
 const Product = require("../model/Product");
 
 //ADD PRODUCT
-router.post("/", async (req, res) => {
+router.post("/" , auth, async (req, res) => {
     try {
 
         const {
@@ -66,7 +67,7 @@ router.get("/", async (req, res) => {
 });
 
 //DELETE
-router.delete("/:id", async (req, res) => {
+router.delete("/:id" , auth, async (req, res) => {
     try {
 
         const product = await Product.findByIdAndDelete(req.params.id);
@@ -94,7 +95,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 //UPDATE
-router.put("/:id", async (req, res) => {
+router.put("/:id" , auth , async (req, res) => {
     try {
 
         const updatedProduct = await Product.findByIdAndUpdate(

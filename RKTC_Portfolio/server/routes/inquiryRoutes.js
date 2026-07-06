@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require("../middleware/auth");
 // this is like a mini-app
 const Inquiry = require('../model/Inquiry');
 
@@ -48,7 +49,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get("/", async (req, res) => {
+router.get("/"  , auth , async (req, res) => {
     try {
 
         const inquiries = await Inquiry.find();
@@ -65,7 +66,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id" ,  auth , async (req, res) => {
     try {
 
         const deletedInquiry = await Inquiry.findByIdAndDelete(
