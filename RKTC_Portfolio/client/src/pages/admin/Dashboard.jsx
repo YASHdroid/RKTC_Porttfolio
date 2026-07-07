@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import AdminLayout from "./AdminLayout";
 import AddProductModal from "./AddProductModal";
 
 const Dashboard = () => {
@@ -52,177 +53,126 @@ const Dashboard = () => {
     },
   ];
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/admin/login");
-  };
-
   return (
-    <div className="min-h-screen flex bg-[#121829] text-white">
+    <AdminLayout>
 
-      {/* SIDEBAR */}
+      {/* Stats */}
 
-      <div className="w-[280px] border-r border-[#2e3139] px-8 py-7">
+      <section className="grid grid-cols-4 gap-6 mt-10">
 
-        <h1 className="text-4xl font-black text-[#e8c96d]">
-          RKTC
-        </h1>
+        {stats.map((item, index) => (
 
-        <p className="text-xs mt-2 text-gray-500">
-          Admin Panel
-        </p>
+          <div
+            key={index}
+            className="
+              bg-[#111722]
+              border
+              border-[#232a3b]
+              rounded-2xl
+              p-8
+              hover:border-[#E8C96D]
+              hover:-translate-y-1
+              duration-300
+            "
+          >
 
-        <div className="mt-18 flex flex-col gap-4">
+            <p className="uppercase tracking-[3px] text-xs text-[#8b93a7]">
+              {item.title}
+            </p>
 
-          <button className="text-left hover:text-[#e8c96d]">
-            Dashboard
-          </button>
+            <h1 className="text-5xl font-black text-[#E8C96D] mt-5">
+              {item.value}
+            </h1>
 
-          <button className="text-left hover:text-[#e8c96d]">
-            Products
-          </button>
+          </div>
 
-          <button className="text-left hover:text-[#e8c96d]">
-            Inquiries
-          </button>
+        ))}
 
-          <button className="text-left hover:text-[#e8c96d]">
-            Settings
-          </button>
+      </section>
 
-        </div>
+      {/* Quick Actions */}
 
-        <button
-          onClick={logout}
-          className="mt-21 w-full py-3 rounded-2xl bg-[#e8c96d] text-black font-bold"
-        >
-          Logout
-        </button>
+      <section className="mt-16">
 
-      </div>
+        <div className="flex items-center gap-3 mb-7">
 
-      {/* CONTENT */}
+          <div className="w-10 h-[2px] bg-[#E8C96D]" />
 
-      <div className="flex-1 p-10">
-
-        <div>
-
-          <h1 className="text-5xl font-black">
-            Welcome Back, Admin
-          </h1>
-
-          <p className="mt-3 text-gray-500">
-            Manage products and monitor inquiries.
+          <p className="uppercase tracking-[3px] text-[#E8C96D] text-xs">
+            Quick Actions
           </p>
 
         </div>
 
-        {/* STATS */}
+        <div className="flex gap-5">
 
-        <div className="grid grid-cols-4 gap-6 mt-12">
+          <button
+            onClick={() => setShowModal(true)}
+            className="
+              px-8
+              py-4
+              rounded-xl
+              bg-[#E8C96D]
+              text-black
+              font-bold
+              hover:scale-105
+              duration-300
+            "
+          >
+            + Add Product
+          </button>
 
-          {stats.map((item, index) => (
-
-            <div
-              key={index}
-              className="p-6 rounded-xl bg-[#10121a] border border-[#1f2435] hover:border-[#e8c96d] transition"
-            >
-
-              <p className="text-sm text-gray-500">
-                {item.title}
-              </p>
-
-              <h1 className="mt-3 text-5xl font-black text-[#e8c96d]">
-                {item.value}
-              </h1>
-
-            </div>
-
-          ))}
-
-        </div>
-
-        {/* QUICK ACTIONS */}
-
-        <div className="mt-14">
-
-          <h2 className="text-2xl font-bold mb-6">
-            Quick Actions
-          </h2>
-
-          <div className="flex gap-5">
-
-            <button
-              onClick={() => setShowModal(true)}
-              className="
-                px-8
-                py-4
-                bg-[#e8c96d]
-                text-black
-                rounded-xl
-                font-bold
-                hover:scale-105
-                transition
-              "
-            >
-              Add Product
-            </button>
-
-            <button
-              className="
-                px-8
-                py-4
-                border
-                border-[#e8c96d]
-                rounded-xl
-                hover:bg-[#e8c96d]
-                hover:text-black
-                transition
-              "
-            >
-              View Inquiries
-            </button>
-
-          </div>
+          <button
+            className="
+              px-8
+              py-4
+              rounded-xl
+              border
+              border-[#E8C96D]
+              hover:bg-[#E8C96D]
+              hover:text-black
+              duration-300
+            "
+          >
+            View Inquiries
+          </button>
 
         </div>
 
-        {/* RECENT */}
+      </section>
 
-        <div
-          className="
+      {/* Recent Activity */}
+
+      <section
+        className="
           mt-16
-          p-8
-          rounded-2xl
-          bg-[#10121a]
+          bg-[#111722]
           border
-          border-[#1f2435]
+          border-[#232a3b]
+          rounded-2xl
+          p-8
         "
-        >
+      >
 
-          <h2 className="text-xl font-bold mb-6">
+        <div className="flex items-center gap-3 mb-6">
+
+          <div className="w-10 h-[2px] bg-[#E8C96D]" />
+
+          <p className="uppercase tracking-[3px] text-[#E8C96D] text-xs">
             Recent Activity
-          </h2>
-
-          <div className="space-y-5">
-
-            <p className="text-gray-400">
-              New inquiry received
-            </p>
-
-            <p className="text-gray-400">
-              Product updated
-            </p>
-
-            <p className="text-gray-400">
-              Admin logged in
-            </p>
-
-          </div>
+          </p>
 
         </div>
 
-      </div>
+        <div className="space-y-4 text-[#8b93a7]">
+
+          <p>• Admin logged in</p>
+          <p>• Product added successfully</p>
+          <p>• Dashboard loaded</p>
+
+        </div>
+
+      </section>
 
       <AddProductModal
         isOpen={showModal}
@@ -230,7 +180,7 @@ const Dashboard = () => {
         refreshProducts={fetchDashboardData}
       />
 
-    </div>
+    </AdminLayout>
   );
 };
 

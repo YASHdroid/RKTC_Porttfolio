@@ -1,134 +1,143 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 
-const AddProductModal = ({ isOpen, onClose, refreshProducts }) => {
+const AddProductModal = ({
+  isOpen,
+  onClose,
+  refreshProducts,
+  product,
+}) => {
+  const [form, setForm] = useState({
+    name: "",
+    description: "",
+    category: "",
+    image: "",
+  });
 
-    const [form, setForm] = useState({
+  useEffect(() => {
+    if (product) {
+      setForm({
+        name: product.name,
+        description: product.description,
+        category: product.category,
+        image: product.image,
+      });
+    } else {
+      setForm({
         name: "",
         description: "",
         category: "",
         image: "",
+      });
+    }
+  }, [product]);
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
     });
+  };
 
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        });
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    try {
+      if (product) {
+        await api.put(`/products/${product._id}`, form);
+        alert("Product Updated Successfully");
+      } else {
+        await api.post("/products", form);
+        alert("Product Added Successfully");
+      }
 
-        try {
+      refreshProducts();
 
-            await api.post("/products", form);
+      onClose();
+    } catch (err) {
+      console.log(err.response?.data || err.message);
+      alert("Something went wrong");
+    }
+  };
 
-            alert("Product Added Successfully");
+  if (!isOpen) return null;
 
-            setForm({
-                name: "",
-                description: "",
-                category: "",
-                image: "",
-            });
+  return (
+    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50">
 
-            refreshProducts();
+      <div className="w-[520px] bg-[#111722] border border-[#E8C96D] rounded-2xl p-8">
 
-            onClose();
+        <h2 className="text-3xl font-bold text-[#E8C96D] mb-8">
+          {product ? "Edit Product" : "Add Product"}
+        </h2>
 
-        } catch (err) {
+        <form onSubmit={handleSubmit} className="space-y-5">
 
-            console.log(err.response?.data || err.message);
+          <input
+            type="text"
+            name="name"
+            placeholder="Product Name"
+            value={form.name}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-transparent border border-[#2b3145] outline-none focus:border-[#E8C96D]"
+            required
+          />
 
-            alert("Unable to add product");
+          <textarea
+            name="description"
+            placeholder="Description"
+            value={form.description}
+            onChange={handleChange}
+            rows="4"
+            className="w-full p-3 rounded bg-transparent border border-[#2b3145] outline-none focus:border-[#E8C96D]"
+            required
+          />
 
-        }
-    };
+          <input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={form.category}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-transparent border border-[#2b3145] outline-none focus:border-[#E8C96D]"
+            required
+          />
 
-    if (!isOpen) return null;
+          <input
+            type="text"
+            name="image"
+            placeholder="Image URL"
+            value={form.image}
+            onChange={handleChange}
+            className="w-full p-3 rounded bg-transparent border border-[#2b3145] outline-none focus:border-[#E8C96D]"
+            required
+          />
 
-    return (
+          <div className="flex justify-end gap-4 pt-4">
 
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-6 py-3 rounded-xl border border-gray-500 hover:border-white transition"
+            >
+              Cancel
+            </button>
 
-            <div className="bg-[#10121a] w-[500px] rounded-xl p-8 border border-[#e8c96d]">
+            <button
+              type="submit"
+              className="px-6 py-3 rounded-xl bg-[#E8C96D] text-black font-bold hover:scale-105 transition"
+            >
+              {product ? "Update Product" : "Add Product"}
+            </button>
 
-                <h2 className="text-3xl font-bold text-[#e8c96d] mb-6">
-                    Add Product
-                </h2>
+          </div>
 
-                <form
-                    onSubmit={handleSubmit}
-                    className="space-y-5"
-                >
+        </form>
 
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Product Name"
-                        value={form.name}
-                        onChange={handleChange}
-                        className="w-full bg-transparent border border-gray-600 p-3 rounded"
-                        required
-                    />
+      </div>
 
-                    <textarea
-                        name="description"
-                        placeholder="Description"
-                        value={form.description}
-                        onChange={handleChange}
-                        className="w-full bg-transparent border border-gray-600 p-3 rounded"
-                        rows="4"
-                        required
-                    />
-
-                    <input
-                        type="text"
-                        name="category"
-                        placeholder="Category"
-                        value={form.category}
-                        onChange={handleChange}
-                        className="w-full bg-transparent border border-gray-600 p-3 rounded"
-                        required
-                    />
-
-                    <input
-                        type="text"
-                        name="image"
-                        placeholder="Image URL"
-                        value={form.image}
-                        onChange={handleChange}
-                        className="w-full bg-transparent border border-gray-600 p-3 rounded"
-                        required
-                    />
-
-                    <div className="flex justify-end gap-3">
-
-                        <button
-                            type="button"
-                            onClick={onClose}
-                            className="px-5 py-2 border border-gray-500 rounded"
-                        >
-                            Cancel
-                        </button>
-
-                        <button
-                            type="submit"
-                            className="bg-[#e8c96d] text-black px-6 py-2 rounded font-bold"
-                        >
-                            Add Product
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    );
+    </div>
+  );
 };
 
 export default AddProductModal;
