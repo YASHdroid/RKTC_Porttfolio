@@ -4,7 +4,7 @@ const CONTACT_INFO = [
   {
     icon: "📍",
     label: "Address",
-    value: "Panipat, Haryana",
+    value: " Gharaunda, Haryana",
     link: null,
   },
   {

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../services/api";
 
 const CATEGORIES = ["All", "Cladding & Facade", "Glass & Transparent", "Ceiling Systems", "Sheets & Panels"];
 
@@ -154,11 +155,69 @@ const PRODUCTS = [
 export default function DealsIn() {
     const [activeCategory, setActiveCategory] = useState("All");
     const [activeProduct, setActiveProduct] = useState(null);
+    const [products, setProducts] = useState(PRODUCTS);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    const fetchProducts = async () => {
+        try {
+            const res = await api.get("/products");
+
+            const databaseProducts = (res.data?.data || []).map((product) => ({
+                id: product._id,
+                _id: product._id,
+                category: product.category || "Other",
+                icon: "▪",
+                name: product.name,
+                fullName: product.name,
+                tagline: product.description || "Premium installation solution",
+                desc: product.description || "Contact RK Trading Co. for complete product details and installation requirements.",
+                image: product.image || "",
+                specs: [],
+                brands: [],
+                uses: [],
+            }));
+
+            const hardcodedNames = PRODUCTS.map((product) =>
+                product.name.toLowerCase()
+            );
+
+            const newDatabaseProducts = databaseProducts.filter(
+                (product) =>
+                    !hardcodedNames.includes(product.name.toLowerCase())
+            );
+
+            setProducts([...PRODUCTS, ...newDatabaseProducts]);
+        } catch (err) {
+            console.log("Products Fetch Error:", err.response?.data || err.message);
+            setProducts(PRODUCTS);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const categories = [
+        "All",
+        ...new Set(products.map((product) => product.category)),
+    ];
 
     const filtered =
         activeCategory === "All"
-            ? PRODUCTS
-            : PRODUCTS.filter((p) => p.category === activeCategory);
+            ? products
+            : products.filter(
+                  (product) => product.category === activeCategory
+              );
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-[#0d0f14] text-[#c9a84c] flex items-center justify-center">
+                <p className="tracking-[4px] uppercase">Loading Products...</p>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-[#0d0f14] text-[#f0ede6] font-sans min-h-screen">
@@ -215,7 +274,7 @@ interior designers. Click any service to see full details.
 
             {/* ── FILTER TABS ── */}
             <div className="px-6 md:px-12 pt-10 pb-2 flex flex-wrap gap-2">
-                {CATEGORIES.map((cat) => (
+                {categories.map((cat) => (
                     <button
                         key={cat}
                         onClick={() => { setActiveCategory(cat); setActiveProduct(null); }}
@@ -299,7 +358,7 @@ interior designers. Click any service to see full details.
                                     Specifications
                                 </div>
                                 <div className="flex flex-col gap-0">
-                                    {activeProduct.specs.map((s, i) => (
+                                    {(activeProduct.specs || []).map((s, i) => (
                                         <div
                                             key={s.label}
                                             className={`flex justify-between gap-4 py-3 text-[13px] ${i !== activeProduct.specs.length - 1 ? "border-b border-[rgba(201,168,76,0.07)]" : ""}`}
@@ -317,7 +376,7 @@ interior designers. Click any service to see full details.
                                     Common Uses
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                    {activeProduct.uses.map((u) => (
+                                    {(activeProduct.uses || []).map((u) => (
                                         <span
                                             key={u}
                                             className="text-[11px] font-medium tracking-[0.08em] px-3 py-1 border border-[rgba(201,168,76,0.2)] text-[#7a7570] rounded"
@@ -334,7 +393,7 @@ interior designers. Click any service to see full details.
                                 Common Brands 
                                 </div>
                                 <div className="flex flex-wrap gap-3">
-                                    {activeProduct.brands.map((b) => (
+                                    {(activeProduct.brands || []).map((b) => (
                                         <span
                                             key={b}
                                             className="font-display text-[16px] tracking-[1.5px] text-[#5a5650]"

@@ -17,10 +17,10 @@ const AddProductModal = ({
   useEffect(() => {
     if (product) {
       setForm({
-        name: product.name,
-        description: product.description,
-        category: product.category,
-        image: product.image,
+        name: product.name || "",
+        description: product.description || "",
+        category: product.category || "",
+        image: product.image || "",
       });
     } else {
       setForm({
@@ -30,7 +30,7 @@ const AddProductModal = ({
         image: "",
       });
     }
-  }, [product]);
+  }, [product, isOpen]);
 
   const handleChange = (e) => {
     setForm({
@@ -51,8 +51,7 @@ const AddProductModal = ({
         alert("Product Added Successfully");
       }
 
-      refreshProducts();
-
+      await refreshProducts();
       onClose();
     } catch (err) {
       console.log(err.response?.data || err.message);
@@ -63,16 +62,13 @@ const AddProductModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50">
-
+    <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
       <div className="w-[520px] bg-[#111722] border border-[#E8C96D] rounded-2xl p-8">
-
         <h2 className="text-3xl font-bold text-[#E8C96D] mb-8">
           {product ? "Edit Product" : "Add Product"}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-
           <input
             type="text"
             name="name"
@@ -114,7 +110,6 @@ const AddProductModal = ({
           />
 
           <div className="flex justify-end gap-4 pt-4">
-
             <button
               type="button"
               onClick={onClose}
@@ -129,13 +124,9 @@ const AddProductModal = ({
             >
               {product ? "Update Product" : "Add Product"}
             </button>
-
           </div>
-
         </form>
-
       </div>
-
     </div>
   );
 };

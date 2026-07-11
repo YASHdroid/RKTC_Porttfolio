@@ -16,6 +16,7 @@ const Products = () => {
   const fetchProducts = async () => {
     try {
       const res = await api.get("/products");
+
       setProducts(res.data.data);
     } catch (err) {
       console.log(err.response?.data || err.message);
@@ -23,19 +24,38 @@ const Products = () => {
   };
 
   const deleteProduct = async (id) => {
-    if (!window.confirm("Delete this product?")) return;
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+
+    if (!confirmDelete) return;
 
     try {
       await api.delete(`/products/${id}`);
+
+      alert("Product Deleted Successfully");
+
       fetchProducts();
     } catch (err) {
       console.log(err.response?.data || err.message);
+
+      alert("Unable to delete product");
     }
   };
 
   const editProduct = (product) => {
     setEditingProduct(product);
     setShowModal(true);
+  };
+
+  const openAddModal = () => {
+    setEditingProduct(null);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setEditingProduct(null);
   };
 
   return (
@@ -52,11 +72,17 @@ const Products = () => {
         </div>
 
         <button
-          onClick={() => {
-            setEditingProduct(null);
-            setShowModal(true);
-          }}
-          className="px-7 py-4 rounded-xl bg-[#E8C96D] text-black font-bold hover:scale-105 duration-300"
+          onClick={openAddModal}
+          className="
+            px-7
+            py-4
+            rounded-xl
+            bg-[#E8C96D]
+            text-black
+            font-bold
+            hover:scale-105
+            duration-300
+          "
         >
           + Add Product
         </button>
@@ -81,10 +107,7 @@ const Products = () => {
 
       <AddProductModal
         isOpen={showModal}
-        onClose={() => {
-          setShowModal(false);
-          setEditingProduct(null);
-        }}
+        onClose={closeModal}
         refreshProducts={fetchProducts}
         product={editingProduct}
       />
