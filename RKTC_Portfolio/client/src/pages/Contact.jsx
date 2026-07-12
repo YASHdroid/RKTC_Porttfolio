@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import api from "../services/api";
 const CONTACT_INFO = [
   {
     icon: "📍",
@@ -54,32 +54,32 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch("/api/inquiries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          products: formData.product ? [formData.product] : [],  // array banao
-        }),
-      });
+  setLoading(true);
+  setError("");
 
-      const data = await response.json();
+  try {
+    await api.post("/inquiries", {
+      ...formData,
+      products: formData.product
+        ? [formData.product]
+        : [],
+    });
 
-      if (!response.ok) throw new Error(data.message || "Something went wrong");
+    setSubmitted(true);
+  } catch (err) {
+    console.log(err.response?.data || err.message);
 
-      setSubmitted(true);
-    } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setError(
+      err.response?.data?.message ||
+      "Something went wrong. Please try again."
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="bg-[#0d0f14] text-[#f0ede6] font-sans min-h-screen">
