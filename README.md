@@ -180,34 +180,6 @@ http://localhost:5173
 
 ---
 
-# 📸 Screenshots
-
-> Add screenshots of the following pages:
-
-- Home Page
-- Products Page
-- Contact Section
-- Admin Login
-- Dashboard
-- Product Management
-- Inquiry Management
-
----
-
-# 📌 Future Improvements
-
-- Product Categories
-- Search & Filtering
-- Product Image Upload
-- Edit Product Feature
-- Role Based Authentication
-- Analytics Dashboard
-- Email Notifications
-- Cloud Image Storage (Cloudinary)
-- Deployment using Vercel & Render
-- SEO Optimization
-
----
 
 # 🔒 Security
 
