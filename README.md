@@ -228,12 +228,21 @@ GitHub:
 https://github.com/YASHdroid
 
 ---
+📧 Email
+
+choprayash601@gmail.com
+---
 
 ## **Shruti**
 
 GitHub:
 https://github.com/Shruti-369
 
+---
+---
+📧 Email
+
+alewashruti@gmail.com
 ---
 
 # ⭐ Support
